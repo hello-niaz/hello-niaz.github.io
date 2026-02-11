@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #0f0f0f; /* Dark background */
+            background-color: #0f0f0f;
             color: #ffffff;
             line-height: 1.6;
         }
@@ -34,6 +34,7 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%; /* Ensure container takes width */
         }
 
         /* --- Header / Navigation --- */
@@ -66,7 +67,7 @@
         }
 
         .nav-links a:hover {
-            color: #8b5cf6; /* Light purple hover */
+            color: #8b5cf6;
         }
 
         /* --- Hero Section --- */
@@ -74,13 +75,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 100vh;
-            padding-top: 60px; /* Space for fixed header */
+            min-height: 100vh; /* Full viewport height */
+            padding-top: 80px;
+            padding-bottom: 50px;
         }
 
         .hero-text {
             flex: 1;
-            padding-right: 50px;
+            padding-right: 40px;
         }
 
         .hero-text h1 {
@@ -97,12 +99,12 @@
         }
 
         .hero-text span {
-            color: #8b5cf6; /* Purple accent */
+            color: #8b5cf6;
         }
 
         .btn {
             display: inline-block;
-            background-color: #7c3aed; /* Your Purple Button */
+            background-color: #7c3aed;
             color: white;
             padding: 12px 30px;
             border-radius: 5px;
@@ -120,15 +122,18 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
+        /* Image Styling Fixes */
         .hero-image img {
             width: 350px;
             height: 350px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #7c3aed; /* Purple border */
-            box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+            object-fit: cover; /* Ensures image covers circle without stretching */
+            border-radius: 50%; /* Makes it a circle */
+            border: 4px solid #7c3aed;
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.25);
+            display: block; /* Removes inline spacing issues */
         }
 
         /* --- Projects Section --- */
@@ -144,8 +149,8 @@
         }
 
         .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex; /* Changed to flex for centering single item */
+            justify-content: center; /* Center the single project */
             gap: 30px;
         }
 
@@ -155,6 +160,8 @@
             border-radius: 10px;
             border: 1px solid #333;
             transition: transform 0.3s ease;
+            max-width: 500px; /* Limit width for single card */
+            width: 100%;
         }
 
         .project-card:hover {
@@ -192,6 +199,7 @@
             color: #8b5cf6;
             font-weight: 600;
             font-size: 0.9rem;
+            display: inline-block;
         }
 
         /* --- Contact Section --- */
@@ -221,9 +229,10 @@
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
             .hero {
-                flex-direction: column-reverse;
+                flex-direction: column-reverse; /* Stack text under image on mobile */
                 text-align: center;
                 justify-content: center;
+                padding-top: 100px;
             }
 
             .hero-text {
@@ -231,12 +240,16 @@
                 margin-top: 40px;
             }
 
+            .hero-text h1 {
+                font-size: 2.5rem; /* Smaller font on mobile */
+            }
+
             .hero-text p {
                 margin: 0 auto 30px auto;
             }
 
             .hero-image img {
-                width: 250px;
+                width: 250px; /* Smaller image on mobile */
                 height: 250px;
             }
         }
@@ -258,67 +271,34 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="container" style="display: flex; align-items: center; width: 100%; flex-wrap: wrap;">
+        <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
             <div class="hero-text">
                 <h1>Hi, I'm Niaz.<br><span>AI Automation Architect</span></h1>
                 <p>
-                    I build end-to-end AI systems. Founder of <strong>Echo Desk</strong>, specializing in custom AI receptionists, voice agents, and RAG pipelines that automate real-world business processes.
+                    I build end-to-end AI systems. Founder of <strong>Echo Desk</strong>, specializing in custom AI receptionists and voice agents that automate real-world business processes.
                 </p>
                 <a href="#work" class="btn">View My Work</a>
             </div>
             <div class="hero-image">
-                <img src="profile.jpg" alt="Niaz">
+                <img src="profile.jpg" alt="Niaz Profile Photo">
             </div>
         </div>
     </section>
 
     <section id="work" class="projects">
         <div class="container">
-            <h2 class="section-title">Selected Projects</h2>
+            <h2 class="section-title">Latest Project</h2>
             <div class="project-grid">
                 
                 <div class="project-card">
-                    <h3>Echo Desk</h3>
-                    <p>Founder of Echo Desk. Designing and building custom AI receptionist solutions for businesses to handle inbound inquiries automatically.</p>
+                    <h3>AI Inbound Receptionist</h3>
+                    <p>A fully autonomous AI receptionist capable of handling inbound calls, qualifying leads, and managing inquiries with human-like conversation skills.</p>
                     <div class="tags">
-                        <span class="tag">Business</span>
                         <span class="tag">AI Voice</span>
                         <span class="tag">Automation</span>
+                        <span class="tag">Receptionist</span>
                     </div>
-                    <a href="https://github.com/hello-niaz" class="project-link">View on GitHub →</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>Dental Clinic Voice Agents</h3>
-                    <p>Built fully functional voice agents for Alpha Dental, Apex Dental, and Bright Dental clinics. Handles scheduling and patient queries.</p>
-                    <div class="tags">
-                        <span class="tag">Vapi</span>
-                        <span class="tag">n8n</span>
-                        <span class="tag">Healthcare</span>
-                    </div>
-                    <a href="https://github.com/hello-niaz" class="project-link">View on GitHub →</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>Outbound Lead Qualifier</h3>
-                    <p>An autonomous agent that reads leads from Google Sheets and performs outbound calls to qualify potential clients for automation services.</p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Google Sheets API</span>
-                        <span class="tag">Telephony</span>
-                    </div>
-                    <a href="https://github.com/hello-niaz" class="project-link">View on GitHub →</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>Enterprise RAG Chatbot</h3>
-                    <p>Developed a Retrieval-Augmented Generation (RAG) pipeline chatbot to serve as an internal knowledge base assistant.</p>
-                    <div class="tags">
-                        <span class="tag">LLMs</span>
-                        <span class="tag">Vector DB</span>
-                        <span class="tag">LangChain</span>
-                    </div>
-                    <a href="https://github.com/hello-niaz" class="project-link">View on GitHub →</a>
+                    <a href="https://github.com/hello-niaz/ai-inbound-receptionist" class="project-link" target="_blank">View on GitHub →</a>
                 </div>
 
             </div>
