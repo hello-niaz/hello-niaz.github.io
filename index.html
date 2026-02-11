@@ -1,182 +1,345 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Niaz Morshed | AI Automation Developer</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Niaz | AI Automation Architect</title>
     <style>
-        body {
+        /* --- Reset & Base Styles --- */
+        * {
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #0f0f14;
-            color: white;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        body {
+            background-color: #0f0f0f; /* Dark background */
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Layout Utilities --- */
         .container {
             max-width: 1100px;
-            margin: auto;
-            padding: 80px 20px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
+        /* --- Header / Navigation --- */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6; /* Light purple hover */
+        }
+
+        /* --- Hero Section --- */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
+            min-height: 100vh;
+            padding-top: 60px; /* Space for fixed header */
         }
 
         .hero-text {
             flex: 1;
-            min-width: 300px;
+            padding-right: 50px;
         }
 
         .hero-text h1 {
-            font-size: 48px;
+            font-size: 3.5rem;
+            line-height: 1.2;
             margin-bottom: 20px;
         }
 
         .hero-text p {
-            font-size: 18px;
-            color: #b3b3c6;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 30px;
             max-width: 500px;
+        }
+
+        .hero-text span {
+            color: #8b5cf6; /* Purple accent */
         }
 
         .btn {
             display: inline-block;
-            margin-top: 25px;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            background-color: #7c3aed;
+            background-color: #7c3aed; /* Your Purple Button */
             color: white;
-            transition: 0.3s;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
             background-color: #6d28d9;
+            transform: translateY(-2px);
         }
 
         .hero-image {
             flex: 1;
-            text-align: center;
-            min-width: 250px;
+            display: flex;
+            justify-content: center;
         }
 
         .hero-image img {
-            width: 320px;
-            height: 320px;
+            width: 350px;
+            height: 350px;
             object-fit: cover;
             border-radius: 50%;
+            border: 4px solid #7c3aed; /* Purple border */
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
         }
 
-        .project-section {
-            margin-top: 100px;
+        /* --- Projects Section --- */
+        .projects {
+            padding: 100px 0;
+            background-color: #141414;
+        }
+
+        .section-title {
             text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .project-card {
-            background-color: #1a1a24;
-            padding: 40px;
-            border-radius: 14px;
-            max-width: 700px;
-            margin: 40px auto;
+            background-color: #1f1f1f;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
         }
 
-        .project-card h2 {
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #7c3aed;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 15px;
         }
 
         .project-card p {
-            color: #b3b3c6;
-            line-height: 1.6;
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
-        .contact-bar {
-            margin-top: 120px;
-            padding: 40px 0;
-            border-top: 1px solid #2a2a38;
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #2d2d2d;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #8b5cf6;
+        }
+
+        .project-link {
+            color: #8b5cf6;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* --- Contact Section --- */
+        .contact {
+            padding: 100px 0;
             text-align: center;
         }
 
-        .contact-bar a {
-            margin: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .contact-bar a:hover {
-            color: #7c3aed;
+        .contact p {
+            margin-bottom: 30px;
+            color: #ccc;
         }
 
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
             .hero {
-                flex-direction: column;
+                flex-direction: column-reverse;
                 text-align: center;
+                justify-content: center;
             }
 
-            .hero-text h1 {
-                font-size: 36px;
+            .hero-text {
+                padding-right: 0;
+                margin-top: 40px;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px auto;
+            }
+
+            .hero-image img {
+                width: 250px;
+                height: 250px;
             }
         }
-
     </style>
 </head>
-
 <body>
 
-<div class="container">
-
-    <div class="hero">
-
-        <div class="hero-text">
-            <h1>Niaz Morshed</h1>
-            <p>
-                AI Automation Developer building intelligent voice systems and workflows 
-                that help businesses automate calls, schedule appointments, and eliminate manual work.
-            </p>
-
-            <a class="btn" href="https://github.com/hello-niaz/ai-inbound-receptionist" target="_blank">
-                View Project
-            </a>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Niaz.</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="hero-image">
-            <img src="profile.jpg" alt="Niaz Morshed">
+    <section id="home" class="hero">
+        <div class="container" style="display: flex; align-items: center; width: 100%; flex-wrap: wrap;">
+            <div class="hero-text">
+                <h1>Hi, I'm Niaz.<br><span>AI Automation Architect</span></h1>
+                <p>
+                    I build end-to-end AI systems. Founder of <strong>Echo Desk</strong>, specializing in custom AI receptionists, voice agents, and RAG pipelines that automate real-world business processes.
+                </p>
+                <a href="#work" class="btn">View My Work</a>
+            </div>
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Niaz">
+            </div>
         </div>
+    </section>
 
-    </div>
+    <section id="work" class="projects">
+        <div class="container">
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="project-grid">
+                
+                <div class="project-card">
+                    <h3>Echo Desk</h3>
+                    <p>Founder of Echo Desk. Designing and building custom AI receptionist solutions for businesses to handle inbound inquiries automatically.</p>
+                    <div class="tags">
+                        <span class="tag">Business</span>
+                        <span class="tag">AI Voice</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                    <a href="https://github.com/hello-niaz" class="project-link">View on GitHub →</a>
+                </div>
 
+                <div class="project-card">
+                    <h3>Dental Clinic Voice Agents</h3>
+                    <p>Built fully functional voice agents for Alpha Dental, Apex Dental, and Bright Dental clinics. Handles scheduling and patient queries.</p>
+                    <div class="tags">
+                        <span class="tag">Vapi</span>
+                        <span class="tag">n8n</span>
+                        <span class="tag">Healthcare</span>
+                    </div>
+                    <a href="https://github.com/hello-niaz" class="project-link">View on GitHub →</a>
+                </div>
 
-    <div class="project-section">
-        <h2>Project</h2>
+                <div class="project-card">
+                    <h3>Outbound Lead Qualifier</h3>
+                    <p>An autonomous agent that reads leads from Google Sheets and performs outbound calls to qualify potential clients for automation services.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Google Sheets API</span>
+                        <span class="tag">Telephony</span>
+                    </div>
+                    <a href="https://github.com/hello-niaz" class="project-link">View on GitHub →</a>
+                </div>
 
-        <div class="project-card">
-            <h2>🤖📞 AI Inbound Receptionist System</h2>
-            <p>
-                A production-ready AI voice receptionist that answers inbound calls 24/7,
-                books appointments, updates CRM records, and sends automated confirmations —
-                all in real time.
-            </p>
+                <div class="project-card">
+                    <h3>Enterprise RAG Chatbot</h3>
+                    <p>Developed a Retrieval-Augmented Generation (RAG) pipeline chatbot to serve as an internal knowledge base assistant.</p>
+                    <div class="tags">
+                        <span class="tag">LLMs</span>
+                        <span class="tag">Vector DB</span>
+                        <span class="tag">LangChain</span>
+                    </div>
+                    <a href="https://github.com/hello-niaz" class="project-link">View on GitHub →</a>
+                </div>
 
-            <a class="btn" href="https://github.com/hello-niaz/ai-inbound-receptionist" target="_blank">
-                View on GitHub
-            </a>
+            </div>
         </div>
-    </div>
+    </section>
 
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Let's work together</h2>
+                <p>Looking for a custom AI solution or need an automation architect? Feel free to reach out.</p>
+                <a href="mailto:your-email@example.com" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="contact-bar">
-        <h3>Contact</h3>
-
-        <a href="https://github.com/hello-niaz" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/niaz-morshed-/" target="_blank">LinkedIn</a>
-    </div>
-
-</div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Niaz. Built for the future.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
