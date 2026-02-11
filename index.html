@@ -2,69 +2,159 @@
 <html>
 <head>
     <title>Niaz Morshed | AI Automation Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #0f172a;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
-            padding: 50px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 80px 20px;
             text-align: center;
         }
+
         h1 {
-            font-size: 42px;
+            font-size: 50px;
+            margin-bottom: 20px;
         }
-        p {
+
+        .subtitle {
+            font-size: 20px;
+            color: #cbd5e1;
             max-width: 700px;
-            margin: 15px auto;
+            margin: 0 auto 60px auto;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 50px 40px;
+            margin-bottom: 80px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
             font-size: 18px;
+            color: #cbd5e1;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: auto;
         }
-        .project {
-            background-color: #1e293b;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 60px auto;
-            max-width: 750px;
-        }
+
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: #3b82f6;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
+            margin-top: 30px;
+            padding: 14px 32px;
+            font-size: 16px;
             font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            color: white;
+            transition: 0.3s ease;
         }
+
         .btn:hover {
-            background: #2563eb;
+            transform: scale(1.05);
+            opacity: 0.9;
         }
-        .coming-soon {
-            margin-top: 60px;
-            opacity: 0.6;
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 40px;
+            color: #94a3b8;
         }
+
+        .footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social .btn {
+            margin: 10px;
+            padding: 12px 22px;
+            font-size: 14px;
+        }
+
+        .small-text {
+            margin-top: 40px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
     </style>
 </head>
+
 <body>
 
-    <h1>🤖 AI Automation Developer</h1>
-    <p>
-        I build AI voice systems and automation workflows that help businesses
-        answer calls 24/7, book appointments automatically, and eliminate manual work.
-    </p>
+    <div class="container">
 
-    <div class="project">
-        <h2>🤖📞 AI Inbound Receptionist System</h2>
-        <p>
-            A production-ready AI voice receptionist that answers inbound calls,
-            books appointments, updates CRM records, and sends confirmations automatically — all in real time.
+        <h1>🤖 AI Automation Developer</h1>
+
+        <p class="subtitle">
+            I build AI voice systems and intelligent automation workflows that help businesses 
+            answer calls 24/7, book appointments automatically, update CRM systems, 
+            and eliminate manual operational work.
         </p>
-        <a class="btn" href="https://github.com/hello-niaz/ai-inbound-receptionist">
-            View Project
-        </a>
-    </div>
 
-    <div class="coming-soon">
-        <h3>More AI automation projects coming soon...</h3>
+        <div class="card">
+            <h2>🤖📞 AI Inbound Receptionist System</h2>
+
+            <p>
+                A production-ready AI voice receptionist that answers inbound calls,
+                schedules appointments, reschedules or cancels bookings,
+                updates CRM records in real time, and sends automated confirmation emails —
+                all without human intervention.
+            </p>
+
+            <a class="btn" href="https://github.com/hello-niaz/ai-inbound-receptionist" target="_blank">
+                View Project
+            </a>
+        </div>
+
+        <h3 class="section-title">
+            More AI automation projects coming soon...
+        </h3>
+
+        <div class="footer">
+
+            <h3>Let’s Connect</h3>
+
+            <div class="social">
+                <a class="btn" href="https://github.com/hello-niaz" target="_blank">
+                    GitHub
+                </a>
+
+                <a class="btn" href="https://www.linkedin.com/in/niaz-morshed-/" target="_blank">
+                    LinkedIn
+                </a>
+            </div>
+
+            <div class="small-text">
+                © 2026 Niaz Morshed — AI Automation Developer
+            </div>
+
+        </div>
+
     </div>
 
 </body>
