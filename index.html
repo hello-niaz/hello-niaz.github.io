@@ -1,1003 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Niaz Morshed — AI Automation Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #050810;
-      --surface: #0b1121;
-      --border: rgba(99, 179, 255, 0.12);
-      --accent: #3b9eff;
-      --accent2: #00e5c3;
-      --accent3: #ff6b6b;
-      --text: #e8edf5;
-      --muted: #7a8ba3;
-      --card: #0d1629;
-      --glow: rgba(59, 158, 255, 0.18);
-    }
+    <title>Niaz Morshed | AI Automation Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0f0f14;
+            color: white;
+        }
 
-    html { scroll-behavior: smooth; }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 20px;
+        }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Mono', monospace;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
 
-    /* ── NOISE GRAIN OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
-    }
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
 
-    /* ── ANIMATED BACKGROUND MESH ── */
-    .bg-mesh {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .bg-mesh::before {
-      content: '';
-      position: absolute;
-      width: 800px; height: 800px;
-      top: -200px; left: -200px;
-      background: radial-gradient(circle, rgba(59,158,255,0.08) 0%, transparent 70%);
-      animation: float1 18s ease-in-out infinite;
-    }
-    .bg-mesh::after {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px;
-      bottom: -100px; right: -100px;
-      background: radial-gradient(circle, rgba(0,229,195,0.06) 0%, transparent 70%);
-      animation: float2 22s ease-in-out infinite;
-    }
-    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(60px,40px)} }
-    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,-60px)} }
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
 
-    /* ── LAYOUT ── */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 1;
-    }
+        .hero-text p {
+            font-size: 18px;
+            color: #b3b3c6;
+            line-height: 1.6;
+            max-width: 500px;
+        }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 1.2rem 2rem;
-      background: rgba(5,8,16,0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-cta {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      padding: 0.45rem 1.1rem;
-      border-radius: 4px;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.78rem;
-      cursor: pointer;
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: all 0.2s;
-    }
-    .nav-cta:hover { background: var(--accent); color: var(--bg); }
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #7c3aed;
+            color: white;
+            transition: 0.3s;
+        }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 80px;
-      position: relative;
-    }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      width: 100%;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(59,158,255,0.08);
-      border: 1px solid rgba(59,158,255,0.2);
-      border-radius: 100px;
-      padding: 0.35rem 1rem;
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.06em;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease forwards;
-    }
-    .badge-dot {
-      width: 7px; height: 7px;
-      background: var(--accent2);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+        .btn:hover {
+            background-color: #6d28d9;
+        }
 
-    .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.3rem;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
-    .hero-title {
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-    .hero-desc {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.8;
-      max-width: 440px;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-    .hero-desc strong { color: var(--text); font-weight: 500; }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            min-width: 250px;
+        }
 
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      animation: fadeUp 0.6s 0.4s ease both;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      padding: 0.75rem 1.8rem;
-      border-radius: 6px;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: all 0.25s;
-      box-shadow: 0 0 30px rgba(59,158,255,0.25);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(59,158,255,0.4); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      padding: 0.75rem 1.8rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: all 0.25s;
-    }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+        .hero-image img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
 
-    /* ── HERO VISUAL ── */
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-    .hero-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      width: 100%;
-      max-width: 380px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle at center, rgba(59,158,255,0.05) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .flow-title {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .flow-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    .flow-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    .flow-step {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.78rem;
-      color: var(--text);
-      transition: all 0.3s;
-      animation: slideFlow 0.4s ease both;
-    }
-    .flow-step:nth-child(1){animation-delay:0.5s}
-    .flow-step:nth-child(2){animation-delay:0.65s}
-    .flow-step:nth-child(3){animation-delay:0.8s}
-    .flow-step:nth-child(4){animation-delay:0.95s}
-    .flow-step:nth-child(5){animation-delay:1.1s}
-    .flow-step:hover { border-color: rgba(59,158,255,0.3); transform: translateX(4px); }
-    @keyframes slideFlow {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .step-icon {
-      width: 28px; height: 28px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-    .step-arrow {
-      margin-left: auto;
-      color: var(--muted);
-      font-size: 0.7rem;
-    }
+        .project-section {
+            margin-top: 100px;
+            text-align: center;
+        }
 
-    /* ── STATS ── */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      padding: 4rem 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin: 5rem 0 3rem;
-    }
-    .stat {
-      text-align: center;
-    }
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: var(--accent);
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
+        .project-card {
+            background-color: #1a1a24;
+            padding: 40px;
+            border-radius: 14px;
+            max-width: 700px;
+            margin: 40px auto;
+        }
 
-    /* ── SECTION HEADINGS ── */
-    .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .section-label::before {
-      content: '';
-      width: 24px; height: 1px;
-      background: var(--accent);
-    }
-    .section-heading {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-    .section-sub {
-      color: var(--muted);
-      font-size: 0.88rem;
-      max-width: 540px;
-      margin-bottom: 3rem;
-      line-height: 1.8;
-    }
+        .project-card h2 {
+            margin-bottom: 15px;
+        }
 
-    /* ── PROJECTS ── */
-    section.projects { padding: 5rem 0; }
+        .project-card p {
+            color: #b3b3c6;
+            line-height: 1.6;
+        }
 
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .project-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(59,158,255,0.04) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .project-card:hover {
-      border-color: rgba(59,158,255,0.35);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(59,158,255,0.1);
-    }
-    .project-header {
-      padding: 2rem 2rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .project-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      background: rgba(59,158,255,0.1);
-      border: 1px solid rgba(59,158,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-    }
-    .project-links {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .project-link {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 0.9rem;
-      color: var(--muted);
-      transition: all 0.2s;
-    }
-    .project-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(59,158,255,0.08); }
-    .project-body { padding: 1.5rem 2rem 2rem; }
-    .project-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-    }
-    .project-desc {
-      color: var(--muted);
-      font-size: 0.83rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    .project-features {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .feature {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.78rem;
-      color: var(--text);
-    }
-    .feature::before {
-      content: '→';
-      color: var(--accent2);
-      font-size: 0.7rem;
-    }
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .tag {
-      padding: 0.3rem 0.75rem;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
-    .tag.highlight {
-      background: rgba(59,158,255,0.08);
-      border-color: rgba(59,158,255,0.25);
-      color: var(--accent);
-    }
+        .contact-bar {
+            margin-top: 120px;
+            padding: 40px 0;
+            border-top: 1px solid #2a2a38;
+            text-align: center;
+        }
 
-    /* Architecture visual in project */
-    .arch-visual {
-      background: rgba(0,0,0,0.3);
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-      font-size: 0.7rem;
-    }
-    .arch-node {
-      padding: 0.35rem 0.8rem;
-      background: rgba(59,158,255,0.07);
-      border: 1px solid rgba(59,158,255,0.15);
-      border-radius: 6px;
-      color: var(--text);
-      white-space: nowrap;
-    }
-    .arch-arrow {
-      color: var(--accent);
-      font-size: 0.8rem;
-    }
+        .contact-bar a {
+            margin: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
 
-    /* Coming soon card */
-    .coming-soon-card {
-      border: 1px dashed rgba(99,179,255,0.2);
-      border-radius: 16px;
-      padding: 3rem 2rem;
-      text-align: center;
-      position: relative;
-    }
-    .coming-soon-card .cs-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .coming-soon-card .cs-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .coming-soon-card .cs-desc {
-      font-size: 0.8rem;
-      color: rgba(122,139,163,0.6);
-    }
+        .contact-bar a:hover {
+            color: #7c3aed;
+        }
 
-    /* ── SKILLS ── */
-    section.skills { padding: 5rem 0; }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .skill-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: all 0.3s;
-    }
-    .skill-card:hover { border-color: rgba(59,158,255,0.3); transform: translateY(-2px); }
-    .skill-card-icon {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-    .skill-card-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-    }
-    .skill-card-desc {
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .skill-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1rem;
-    }
-    .skill-pill {
-      padding: 0.2rem 0.6rem;
-      background: rgba(255,255,255,0.04);
-      border-radius: 4px;
-      font-size: 0.68rem;
-      color: var(--muted);
-      border: 1px solid var(--border);
-    }
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
 
-    /* ── CTA SECTION ── */
-    section.cta {
-      padding: 6rem 0;
-    }
-    .cta-box {
-      background: linear-gradient(135deg, rgba(59,158,255,0.08) 0%, rgba(0,229,195,0.04) 100%);
-      border: 1px solid rgba(59,158,255,0.2);
-      border-radius: 20px;
-      padding: 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-box::before {
-      content: '';
-      position: absolute;
-      width: 600px; height: 300px;
-      top: -150px; left: 50%;
-      transform: translateX(-50%);
-      background: radial-gradient(ellipse, rgba(59,158,255,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .cta-box .section-heading { margin-bottom: 1rem; }
-    .cta-box .section-sub { margin: 0 auto 2.5rem; text-align: center; }
-    .cta-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .cta-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .cta-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.8rem;
-      transition: color 0.2s;
-    }
-    .cta-link:hover { color: var(--accent); }
+            .hero-text h1 {
+                font-size: 36px;
+            }
+        }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.75rem;
-      letter-spacing: 0.04em;
-    }
-    footer span { color: var(--accent); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-visual { display: none; }
-      .stats-row { grid-template-columns: repeat(3,1fr); }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .cta-box { padding: 2.5rem 1.5rem; }
-      .nav-links { display: none; }
-    }
-    @media (max-width: 480px) {
-      .skills-grid { grid-template-columns: 1fr; }
-      .stats-row { grid-template-columns: 1fr; gap: 2rem; }
-    }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: rgba(59,158,255,0.3); border-radius: 3px; }
-  </style>
+    </style>
 </head>
+
 <body>
 
-<div class="bg-mesh"></div>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">niaz<span>.</span>dev</a>
-  <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="https://github.com/hello-niaz" target="_blank" class="nav-cta">GitHub ↗</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <div class="badge-dot"></div>
-          Available for new projects
-        </div>
-        <h1 class="hero-name">Niaz<br/>Morshed</h1>
-        <p class="hero-title">AI Automation Developer</p>
-        <p class="hero-desc">
-          I build <strong>AI voice systems</strong> and <strong>intelligent automation workflows</strong> that help businesses answer calls 24/7, book appointments automatically, update CRM systems, and eliminate manual operational work.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="#contact" class="btn-ghost">Let's Talk</a>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="hero-card">
-          <div class="flow-title">AI Receptionist Flow</div>
-          <div class="flow-steps">
-            <div class="flow-step">
-              <div class="step-icon" style="background:rgba(59,158,255,0.12)">📞</div>
-              <span>Inbound Call Received</span>
-              <span class="step-arrow">✓</span>
-            </div>
-            <div class="flow-step">
-              <div class="step-icon" style="background:rgba(0,229,195,0.1)">🧠</div>
-              <span>Intent Detection</span>
-              <span class="step-arrow">✓</span>
-            </div>
-            <div class="flow-step">
-              <div class="step-icon" style="background:rgba(255,107,107,0.1)">📅</div>
-              <span>Calendar API Call</span>
-              <span class="step-arrow">✓</span>
-            </div>
-            <div class="flow-step">
-              <div class="step-icon" style="background:rgba(59,158,255,0.12)">💾</div>
-              <span>CRM Auto-Updated</span>
-              <span class="step-arrow">✓</span>
-            </div>
-            <div class="flow-step">
-              <div class="step-icon" style="background:rgba(0,229,195,0.1)">✉️</div>
-              <span>Confirmation Sent</span>
-              <span class="step-arrow">✓</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
 <div class="container">
-  <div class="stats-row reveal">
-    <div class="stat">
-      <div class="stat-num">24/7</div>
-      <div class="stat-label">Uptime Operation</div>
+
+    <div class="hero">
+
+        <div class="hero-text">
+            <h1>Niaz Morshed</h1>
+            <p>
+                AI Automation Developer building intelligent voice systems and workflows 
+                that help businesses automate calls, schedule appointments, and eliminate manual work.
+            </p>
+
+            <a class="btn" href="https://github.com/hello-niaz/ai-inbound-receptionist" target="_blank">
+                View Project
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <img src="profile.jpg" alt="Niaz Morshed">
+        </div>
+
     </div>
-    <div class="stat">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Calls Answered</div>
+
+
+    <div class="project-section">
+        <h2>Project</h2>
+
+        <div class="project-card">
+            <h2>🤖📞 AI Inbound Receptionist System</h2>
+            <p>
+                A production-ready AI voice receptionist that answers inbound calls 24/7,
+                books appointments, updates CRM records, and sends automated confirmations —
+                all in real time.
+            </p>
+
+            <a class="btn" href="https://github.com/hello-niaz/ai-inbound-receptionist" target="_blank">
+                View on GitHub
+            </a>
+        </div>
     </div>
-    <div class="stat">
-      <div class="stat-num">0</div>
-      <div class="stat-label">Manual Work Needed</div>
+
+
+    <div class="contact-bar">
+        <h3>Contact</h3>
+
+        <a href="https://github.com/hello-niaz" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/niaz-morshed-/" target="_blank">LinkedIn</a>
     </div>
-  </div>
+
 </div>
 
-<!-- PROJECTS -->
-<section class="projects" id="projects">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-label">Featured Work</p>
-      <h2 class="section-heading">Projects</h2>
-      <p class="section-sub">
-        Production-ready AI automation systems built to solve real business problems — not demos, actual deployed solutions.
-      </p>
-    </div>
-
-    <!-- Project 1: AI Inbound Receptionist -->
-    <div class="project-card reveal">
-      <div class="project-header">
-        <div class="project-icon">🤖</div>
-        <div class="project-links">
-          <a href="https://youtu.be/-OLORCkWoG0" target="_blank" class="project-link" title="Demo Video">▶</a>
-          <a href="https://github.com/hello-niaz/ai-inbound-receptionist" target="_blank" class="project-link" title="View on GitHub">↗</a>
-        </div>
-      </div>
-      <div class="project-body">
-        <h3 class="project-name">AI Inbound Receptionist System</h3>
-        <p class="project-desc">
-          A production-ready AI voice receptionist that handles real inbound phone calls around the clock. It books, reschedules, and cancels appointments — while updating CRM records and sending confirmation emails in real time. Zero human intervention required.
-        </p>
-        <div class="project-features">
-          <div class="feature">Answers 100% of inbound calls with natural, human-like conversation</div>
-          <div class="feature">Live appointment booking, rescheduling & cancellation</div>
-          <div class="feature">Real-time CRM record creation and sync</div>
-          <div class="feature">Automated email confirmations for every interaction</div>
-          <div class="feature">Prevents double bookings via calendar availability check</div>
-        </div>
-        <div class="project-tags">
-          <span class="tag highlight">Voice AI</span>
-          <span class="tag highlight">n8n Automation</span>
-          <span class="tag">Calendar API</span>
-          <span class="tag">CRM Integration</span>
-          <span class="tag">Email Automation</span>
-          <span class="tag">Production-Ready</span>
-        </div>
-      </div>
-      <div class="arch-visual">
-        <span class="arch-node">Voice AI</span>
-        <span class="arch-arrow">→</span>
-        <span class="arch-node">Intent Engine</span>
-        <span class="arch-arrow">→</span>
-        <span class="arch-node">n8n Workflow</span>
-        <span class="arch-arrow">→</span>
-        <span class="arch-node">Calendar API</span>
-        <span class="arch-arrow">→</span>
-        <span class="arch-node">CRM</span>
-        <span class="arch-arrow">→</span>
-        <span class="arch-node">Email</span>
-      </div>
-    </div>
-
-    <!-- Use Cases Row -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0; reveal">
-      <div class="skill-card reveal" style="text-align:center;padding:1.2rem;">
-        <div style="font-size:1.5rem;margin-bottom:0.5rem">🦷</div>
-        <div style="font-size:0.8rem;font-family:'Syne',sans-serif;font-weight:700;margin-bottom:0.3rem;">Dental Clinics</div>
-        <div style="font-size:0.72rem;color:var(--muted)">Automated patient scheduling</div>
-      </div>
-      <div class="skill-card reveal" style="text-align:center;padding:1.2rem;">
-        <div style="font-size:1.5rem;margin-bottom:0.5rem">🏠</div>
-        <div style="font-size:0.8rem;font-family:'Syne',sans-serif;font-weight:700;margin-bottom:0.3rem;">Real Estate</div>
-        <div style="font-size:0.72rem;color:var(--muted)">Property viewing bookings</div>
-      </div>
-      <div class="skill-card reveal" style="text-align:center;padding:1.2rem;">
-        <div style="font-size:1.5rem;margin-bottom:0.5rem">🏥</div>
-        <div style="font-size:0.8rem;font-family:'Syne',sans-serif;font-weight:700;margin-bottom:0.3rem;">Healthcare</div>
-        <div style="font-size:0.72rem;color:var(--muted)">Patient intake & appointments</div>
-      </div>
-    </div>
-
-    <!-- Coming Soon -->
-    <div class="coming-soon-card reveal">
-      <div class="cs-icon">⚙️</div>
-      <div class="cs-title">More AI Automation Projects — Coming Soon</div>
-      <div class="cs-desc">Currently building the next wave of intelligent workflows. Follow on GitHub to stay updated.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="skills" id="skills">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-label">What I Do</p>
-      <h2 class="section-heading">Skills & Stack</h2>
-      <p class="section-sub">
-        Specialized in building end-to-end AI-powered automation pipelines — from voice interfaces to backend integrations.
-      </p>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🎙️</div>
-        <div class="skill-card-title">Voice AI Systems</div>
-        <div class="skill-card-desc">Building conversational AI agents that handle real phone calls with natural language understanding and live action execution.</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Voice AI Platforms</span>
-          <span class="skill-pill">NLP</span>
-          <span class="skill-pill">Intent Detection</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">⚡</div>
-        <div class="skill-card-title">Workflow Automation</div>
-        <div class="skill-card-desc">Designing and deploying complex multi-step automation workflows that trigger in real time and require zero manual touchpoints.</div>
-        <div class="skill-pills">
-          <span class="skill-pill">n8n</span>
-          <span class="skill-pill">Zapier</span>
-          <span class="skill-pill">Make.com</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">📅</div>
-        <div class="skill-card-title">Scheduling Systems</div>
-        <div class="skill-card-desc">Integrating live calendar APIs to check availability, book slots, prevent conflicts, and manage appointment lifecycles automatically.</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Google Calendar</span>
-          <span class="skill-pill">Cal.com</span>
-          <span class="skill-pill">Calendly API</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">💼</div>
-        <div class="skill-card-title">CRM Integration</div>
-        <div class="skill-card-desc">Auto-creating and updating client records across CRM platforms during live interactions — structured, accurate, always in sync.</div>
-        <div class="skill-pills">
-          <span class="skill-pill">HubSpot</span>
-          <span class="skill-pill">GoHighLevel</span>
-          <span class="skill-pill">Airtable</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">✉️</div>
-        <div class="skill-card-title">Automated Comms</div>
-        <div class="skill-card-desc">Triggering personalized confirmation and follow-up emails automatically based on conversation outcomes and workflow states.</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Email APIs</span>
-          <span class="skill-pill">SMTP</span>
-          <span class="skill-pill">Transactional Mail</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🔗</div>
-        <div class="skill-card-title">API & Integrations</div>
-        <div class="skill-card-desc">Connecting disparate systems into unified pipelines using REST APIs, webhooks, and event-driven architecture.</div>
-        <div class="skill-pills">
-          <span class="skill-pill">REST APIs</span>
-          <span class="skill-pill">Webhooks</span>
-          <span class="skill-pill">JSON/HTTP</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA / CONTACT -->
-<section class="cta" id="contact">
-  <div class="container">
-    <div class="cta-box reveal">
-      <p class="section-label" style="justify-content:center;">Get In Touch</p>
-      <h2 class="section-heading">Let's Build Something Together</h2>
-      <p class="section-sub">
-        If your business is losing revenue from unanswered calls or manual scheduling — let's fix that with AI automation. Open to collaborations, freelance projects, and full-time opportunities.
-      </p>
-      <div class="cta-actions">
-        <a href="https://www.linkedin.com/in/niaz-morshed-/" target="_blank" class="btn-primary">Connect on LinkedIn</a>
-        <a href="https://github.com/hello-niaz" target="_blank" class="btn-ghost">View GitHub</a>
-      </div>
-      <div class="cta-links">
-        <a href="https://github.com/hello-niaz" target="_blank" class="cta-link">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          hello-niaz
-        </a>
-        <a href="https://www.linkedin.com/in/niaz-morshed-/" target="_blank" class="cta-link">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          niaz-morshed
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  © 2026 <span>Niaz Morshed</span> — AI Automation Developer &nbsp;·&nbsp; Built with precision
-</footer>
-
-<script>
-  // Intersection Observer for reveal animations
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80 * i);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
-
-  // Smooth active nav highlighting
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current
-        ? 'var(--accent)' : '';
-    });
-  });
-
-  // Counter animation for stats
-  function animateCounter(el, target, suffix = '') {
-    let start = 0;
-    const duration = 1500;
-    const step = (timestamp) => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      if (typeof target === 'number') {
-        el.textContent = Math.floor(eased * target) + suffix;
-      }
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target + suffix;
-    };
-    requestAnimationFrame(step);
-  }
-  const statsObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      // Stats are text-based here, no counters needed
-      statsObserver.disconnect();
-    }
-  }, { threshold: 0.5 });
-  const statsRow = document.querySelector('.stats-row');
-  if (statsRow) statsObserver.observe(statsRow);
-</script>
 </body>
 </html>
